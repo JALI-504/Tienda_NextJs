@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Menu from '@components/Menu';
 import MyOrder from '@containers/MyOrder';
 import menu from '@icons/icon_menu.svg';
@@ -16,32 +17,34 @@ const Header = () => {
 			<nav className={styles.Nav}>
 				<Image src={menu} alt="menu" className={styles.menu} />
 				<div className={styles['navbar-left']}>
+					<Link href="/">
 					<Image src={logo} alt="logo" className={styles['nav-logo']} />
+					</Link>
 					<ul>
 						<li>
-							<a href="/">All</a>
+							<a href="/">Todo</a>
 						</li>
 						<li>
-							<a href="/">Clothes</a>
+							<a href="/">Ropa</a>
 						</li>
 						<li>
-							<a href="/">Electronics</a>
+							<a href="/">Electrodomesticos</a>
 						</li>
 						<li>
-							<a href="/">Furnitures</a>
+							<a href="/">Muebles</a>
 						</li>
 						<li>
-							<a href="/">Toys</a>
+							<a href="/">Juguetes</a>
 						</li>
 						<li>
-							<a href="/">Others</a>
+							<a href="/">Otros</a>
 						</li>
 					</ul>
 				</div>
 				<div className={styles['navbar-right']}>
 					<ul>
 						<li className={styles['more-clickable-area'], styles['navbar-email'], styles.pointer} onClick={() => toggleMenu()}>
-							platzi@example.com
+							jali@504.com
 						</li>
 						<li
 							// className={styles.['navbar-shopping-cart']}

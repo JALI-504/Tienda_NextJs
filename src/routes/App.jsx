@@ -1,42 +1,52 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Layout from '@containers/Layout';
-import Home from '@pages/Home';
-import Login from '@pages/Login';
-import PasswordRecovery from '@pages/PasswordRecovery';
-import SendEmail from '@pages/SendEmail';
-import NewPassword from '@pages/NewPassword';
-import MyAccount from '@pages/MyAccount';
-import CreateAccount from '@pages/CreateAccount';
-import Checkout from '@pages/Checkout';
-import Orders from '@pages/Orders';
-import NotFound from '@pages/NotFound';
+import React from "react";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Layout from '../containers/Layout';
+import ProducItem from "../components/ProducItem";
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import RecuperarPass from '../pages/RecuperarPass';
+import EnviarEmail from '../pages/EnviarEmail';
+import NewPass from '../pages/NewPass';
+import MiCuenta from "../pages/MiCuenta";
+import CrearCuenta from "../pages/CrearCuenta";
+import Checkout from '../pages/Checkout';
+import Order from '../components/Order';
+import Orders from '../pages/Orders';
 import AppContext from '../context/AppContext';
 import useInitialState from '../hooks/useInitialState';
-import '@styles/global.css';
+import NotFound from '../pages/NotFound';
 
-const App = () => {
-	const initialState = useInitialState();
-	return (
-		<AppContext.Provider value={initialState}>
-			<BrowserRouter>
-				<Layout>
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route exact path="/login" component={Login} />
-						<Route exact path="/password-recovery" component={PasswordRecovery} />
-						<Route exact path="/send-email" component={SendEmail} />
-						<Route exact path="/new-password" component={NewPassword} />
-						<Route exact path="/account" component={MyAccount} />
-						<Route exact path="/signup" component={CreateAccount} />
-						<Route exact path="/checkout" component={Checkout} />
-						<Route exact path="/orders" component={Orders} />
-						<Route path="*" component={NotFound} />
-					</Switch>
-				</Layout>
-			</BrowserRouter>
-		</AppContext.Provider>
-	);
-}
+
+import '../styles/global.css';
+
+
+
+ const App  = () => {
+    const initialState = useInitialState();
+     return (
+        <AppContext.Provider value={ initialState }>
+            <BrowserRouter>
+            <Layout>
+                <Routes>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/login" element={<Login />} />
+                    <Route exact path="/recuperarpass" element={<RecuperarPass />} />
+                    <Route exact path="/enviaremail" element={<EnviarEmail />} />
+                    <Route exact path="/newpass" element={<NewPass />} />
+                    <Route exact path="/micuenta" element={<MiCuenta />} />
+                    <Route exact path="/crearcuenta" element={<CrearCuenta />} />
+                    <Route exact path="/checkout" element={<Checkout />} />
+                    <Route exact path="/order" element={<Order />} />
+                    <Route exact path="/orders" element={<Orders />} />
+                    <Route exact path="/producitem" element={<ProducItem />} />
+                    <Route path="*" element={<NotFound />} />      
+                </Routes>   
+            </Layout>
+        </BrowserRouter>
+        </AppContext.Provider>
+        
+
+     );
+ }
 
 export default App;

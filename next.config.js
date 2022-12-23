@@ -3,5 +3,7 @@
 
 module.exports = {
   reactStrictMode: true,
- 
+  images: {
+    domains: ['https://lorem.space/categories'],
+  },
 }
