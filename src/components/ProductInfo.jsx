@@ -1,28 +1,22 @@
 import React from 'react';
 import '@styles/ProductInfo.scss';
-
-
-import close from '@icons/icon_close.png';
-import addCart from '@icons/bt_add_to_cart.svg';
+import addToCart from '@icons/bt_add_to_cart.svg';
 
 const ProductInfo = () => {
-    return (
-        <aside className="ProductInfo">
-        <div className="ProductInfo-close">
-            <img src={close} alt="close"/>
-        </div>    
-        <img src="https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="bicicleta"/>
-        <div className="ProductInfo">
-            <p>L. 1,500.00</p>
-            <p>Bicicleta</p>
-            <p>Bicicleta estilo montañesa, ideal para realizar senderismo y recorrer grandes distancais</p>
-            <button className="primary-button add-to-cart-button">
-                <img src={addCart}/>
-                Agregar al Carrito
-            </button>
-        </div>
-    </aside>
-    );
+	return (
+		<>
+			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike" />
+			<div className="ProductInfo">
+				<p>$35,00</p>
+				<p>Bike</p>
+				<p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+				<button className="primary-button add-to-cart-button">
+					<img src={addToCart} alt="add to cart" />
+					Add to cart
+				</button>
+			</div>
+		</>
+	);
 }
 
 export default ProductInfo;
