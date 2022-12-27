@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 import Menu from '@components/Menu';
 import MyOrder from '@containers/MyOrder';
 import menu from '@icons/icon_menu.svg';
@@ -15,40 +15,45 @@ const Header = () => {
 	return (
 		<>
 			<nav className={styles.Nav}>
-				<Image src={menu} alt="menu" className={styles.menu} />
+				<img src={menu.src} alt="menu" className={styles.menu} />
 				<div className={styles['navbar-left']}>
-					<Link href="/">
-					<Image src={logo} alt="logo" className={styles['nav-logo']} />
+					<Link href="/" passHref>
+						<Image src={logo} alt="logo" className={styles['nav-logo']} />
 					</Link>
 					<ul>
 						<li>
-							<a href="/">Todo</a>
+							<Link href="/">Linkll</Link>
 						</li>
 						<li>
-							<a href="/">Ropa</a>
+							<Link href="/">Clothes</Link>
 						</li>
 						<li>
-							<a href="/">Electrodomesticos</a>
+							<Link href="/">Electronics</Link>
 						</li>
 						<li>
-							<a href="/">Muebles</a>
+							<Link href="/">Furnitures</Link>
 						</li>
 						<li>
-							<a href="/">Juguetes</a>
+							<Link href="/">Toys</Link>
 						</li>
 						<li>
-							<a href="/">Otros</a>
+							<Link href="/">Others</Link>
 						</li>
 					</ul>
 				</div>
 				<div className={styles['navbar-right']}>
 					<ul>
-						<li className={styles['more-clickable-area'], styles['navbar-email'], styles.pointer} onClick={() => toggleMenu()}>
-							jali@504.com
+						<li
+							className={styles['more-clickable-area'], styles['navbar-email'], styles.pointer}
+							onClick={() => toggleMenu()}
+							aria-hidden="true"
+						>
+							platzi@example.com
 						</li>
 						<li
-							// className={styles.['navbar-shopping-cart']}
+							className={styles['navbar-shopping-cart']}
 							onClick={() => toggleOrder()}
+							aria-hidden="true"
 						>
 							<Image className={styles['more-clickable-area'], styles.pointer} src={shoppingCart} alt="shopping cart" />
 							{state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
@@ -60,6 +65,6 @@ const Header = () => {
 			{state.orderIsOpen && <MyOrder />}
 		</>
 	);
-}
+};
 
 export default Header;
